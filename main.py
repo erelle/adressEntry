@@ -1,4 +1,5 @@
 import tkinter as tk
+import random
 
 window=tk.Tk()
 window.title("Adress Entry Form")
@@ -43,8 +44,36 @@ entry6.grid(row=5, column=1)
 entry7.grid(row=6, column=1)
 entry8.grid(row=7, column=1)
 
-button1=tk.Button(text="Clear", master=frame2, relief=tk.RAISED)
-button2=tk.Button(text="Submit", master=frame2, relief=tk.RAISED)
+
+def randomize():
+    entry1.delete(0, tk.END)
+    entry2.delete(0, tk.END)
+    entry3.delete(0, tk.END)
+    entry4.delete(0, tk.END)
+    entry5.delete(0, tk.END)
+    entry6.delete(0, tk.END)
+    entry7.delete(0, tk.END)
+    entry8.delete(0, tk.END)
+
+def window2():
+    answer1=entry1.get()
+    answer2=entry2.get()
+    answer3=entry3.get()
+    answer4=entry4.get()
+    answer5=entry5.get()
+    answer6=entry6.get()
+    answer7 = entry7.get()
+    answer8 = entry8.get()
+    window2 = tk.Tk()
+    window2.title("summary")
+    string = "hello "+answer1+" "+answer2+"\ni dont know what " + answer3+ " and " +answer4+ " means.\ni dont care that you live in "+answer5+ " "+answer6+ " "+answer7+ " "+answer8+ "\nbyebye"
+    text = tk.Text(master=window2)
+    text.insert("0.0",string)
+    window.destroy()
+    text.pack()
+
+button1=tk.Button(text="Clear", master=frame2, relief=tk.RAISED, command=randomize)
+button2=tk.Button(text="Submit", master=frame2, relief=tk.RAISED,command=window2)
 button2.pack(side=tk.RIGHT, padx=10,pady=10)
 button1.pack(side=tk.RIGHT, ipadx=10)
 
